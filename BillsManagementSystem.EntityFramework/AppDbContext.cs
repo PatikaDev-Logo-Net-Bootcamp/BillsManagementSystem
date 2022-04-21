@@ -1,4 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using BillsManagementSystem.DataAccess.EntityFramework.Configurations;
+using BillsManagementSystem.Model.Entities.Concrete;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,13 +17,17 @@ namespace BillsManagementSystem.DataAccess.EntityFramework
 
         }
 
-        //db setler buraya  public DbSet<Company> Companies { get; set; }
+        public DbSet<Bill> Bills { get; set; }
+        public DbSet<User> Users { get; set; }
+        public DbSet<Apartment> Apartments { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-            //modelBuilder.ApplyConfiguration(new CompanyConfiguration());
-            //modelBuilder.ApplyConfiguration(new PostConfiguration());
+            modelBuilder.ApplyConfiguration(new BillConfiguration());
+            modelBuilder.ApplyConfiguration(new UserConfiguration());
+            modelBuilder.ApplyConfiguration(new ApartmentConfiguration());            
+
         }        
     }
 

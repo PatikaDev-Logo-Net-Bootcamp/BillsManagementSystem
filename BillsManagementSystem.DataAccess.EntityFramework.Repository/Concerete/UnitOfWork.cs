@@ -1,13 +1,8 @@
-﻿using BillsManagementSystem.DataAccess.EntityFramework;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using BillsManagementSystem.DataAccess.EntityFramework.Repository.Abstract;
 
 namespace BillsManagementSystem.DataAccess.EntityFramework.Repository.Concerete
 {
-    public class UnitOfWork
+    public class UnitOfWork : IUnitOfWork
     {
         public AppDbContext Context { get; }
         public UnitOfWork(AppDbContext context)
@@ -18,6 +13,11 @@ namespace BillsManagementSystem.DataAccess.EntityFramework.Repository.Concerete
         public void Commit()
         {
             Context.SaveChanges();
+        }
+
+        public void Dispose()
+        {
+            Context?.Dispose();
         }
     }
 }

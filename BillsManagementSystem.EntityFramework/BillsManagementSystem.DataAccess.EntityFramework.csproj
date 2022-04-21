@@ -18,8 +18,4 @@
     <ProjectReference Include="..\BillsManagementSystem.Model\BillsManagementSystem.Model.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Configurations\" />
-  </ItemGroup>
-
 </Project>
