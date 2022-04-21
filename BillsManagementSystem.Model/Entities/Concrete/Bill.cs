@@ -24,10 +24,7 @@ namespace BillsManagementSystem.Model.Entities.Concrete
         public int BillStatusId { get; set; }
         
         public int UserId { get; set; }
-        
-        //public virtual BillType BillType { get; set; }
-        
-        //public virtual BillStatus BillStatus { get; set; }
+       
         
         public virtual User User { get; set; }
     }
